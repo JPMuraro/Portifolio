@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Jean Paulo Muraro — Software Developer | Full Stack | Blockchain & Web3" />
+    <title>Jean Paulo Muraro | Software Developer</title>
+
+    <style>
+      :root{
+        --bg:#070A12;
+        --panel:#0C1020;
+        --panel2:#0B122B;
+        --text:#EAF0FF;
+        --muted:#A9B3D5;
+        --line:rgba(255,255,255,.10);
+        --glow:rgba(124,92,255,.35);
+        --accent:#7C5CFF;
+        --accent2:#2EE9A6;
+        --shadow: 0 18px 60px rgba(0,0,0,.55);
+        --radius: 18px;
+        --max: 1120px;
+      }
+      *{ box-sizing:border-box; }
+      html,body{ height:100%; }
+      body{
+        margin:0;
+        color:var(--text);
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+        background:
+          radial-gradient(900px 520px at 20% -10%, rgba(124,92,255,.22), transparent 55%),
+          radial-gradient(900px 520px at 85% 10%, rgba(46,233,166,.16), transparent 50%),
+          radial-gradient(700px 480px at 40% 120%, rgba(124,92,255,.12), transparent 55%),
+          var(--bg);
+        overflow-x:hidden;
+      }
+      a{ color:inherit; text-decoration:none; }
+      .wrap{ max-width:var(--max); margin:0 auto; padding:28px 18px 80px; }
+
+      /* Top nav */
+      .nav{
+        display:flex; align-items:center; justify-content:space-between;
+        gap:12px; position:sticky; top:0; z-index:50;
+        padding:14px 0;
+        backdrop-filter: blur(10px);
+        background: linear-gradient(to bottom, rgba(7,10,18,.75), rgba(7,10,18,.25));
+        border-bottom: 1px solid rgba(255,255,255,.06);
+      }
+      .brand{
+        display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px;
+      }
+      .dot{
+        width:10px; height:10px; border-radius:50%;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        box-shadow: 0 0 22px var(--glow);
+      }
+      .navlinks{ display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end; }
+      .nav a{
+        color:var(--muted);
+        font-size:14px;
+        padding:8px 10px;
+        border-radius: 999px;
+        border: 1px solid transparent;
+      }
+      .nav a:hover{
+        color:var(--text);
+        border-color: rgba(255,255,255,.10);
+        background: rgba(255,255,255,.04);
+      }
+      .lang{
+        display:flex; align-items:center; gap:8px;
+      }
+      .btn{
+        display:inline-flex; align-items:center; justify-content:center;
+        gap:8px;
+        padding:10px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,.12);
+        background: rgba(255,255,255,.04);
+        color:var(--text);
+        cursor:pointer;
+        transition: transform .08s ease, background .2s ease, border-color .2s ease;
+        user-select:none;
+        font-weight:600;
+      }
+      .btn:hover{ background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.18); }
+      .btn:active{ transform: translateY(1px); }
+      .btn.primary{
+        border-color: rgba(124,92,255,.55);
+        background: linear-gradient(135deg, rgba(124,92,255,.22), rgba(46,233,166,.12));
+        box-shadow: 0 0 0 1px rgba(124,92,255,.25), 0 12px 40px rgba(124,92,255,.14);
+      }
+      .btn.primary:hover{
+        border-color: rgba(124,92,255,.75);
+        box-shadow: 0 0 0 1px rgba(124,92,255,.30), 0 16px 55px rgba(124,92,255,.18);
+      }
+      .btn.small{ padding:8px 12px; font-size:13px; }
+
+      /* Hero */
+      .hero{
+        display:grid;
+        grid-template-columns: 1.35fr .65fr;
+        gap:20px;
+        align-items:stretch;
+        padding:26px 0 8px;
+      }
+      @media (max-width: 900px){
+        .hero{ grid-template-columns:1fr; }
+      }
+      .card{
+        background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+        border: 1px solid rgba(255,255,255,.10);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+      .heroMain{
+        padding:28px;
+        position:relative;
+        overflow:hidden;
+      }
+      .heroMain:before{
+        content:"";
+        position:absolute; inset:-2px;
+        background:
+          radial-gradient(600px 240px at 25% 10%, rgba(124,92,255,.22), transparent 60%),
+          radial-gradient(520px 220px at 85% 30%, rgba(46,233,166,.14), transparent 60%);
+        opacity:.9;
+        pointer-events:none;
+      }
+      .heroMain > *{ position:relative; }
+      .kicker{
+        display:inline-flex; align-items:center; gap:10px;
+        padding:7px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,.10);
+        background: rgba(255,255,255,.03);
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .kicker .pill{
+        padding:3px 8px;
+        border-radius: 999px;
+        background: rgba(124,92,255,.15);
+        border:1px solid rgba(124,92,255,.35);
+        color: #D8D0FF;
+        font-weight:700;
+        font-size:12px;
+      }
+      h1{
+        margin:14px 0 10px;
+        font-size: 42px;
+        line-height: 1.08;
+        letter-spacing: -0.6px;
+      }
+      @media (max-width: 520px){
+        h1{ font-size: 34px; }
+      }
+      .subtitle{
+        margin:0 0 14px;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.55;
+        max-width: 62ch;
+      }
+      .chips{
+        display:flex; flex-wrap:wrap; gap:10px;
+        margin: 18px 0 16px;
+      }
+      .chip{
+        padding:8px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,.12);
+        background: rgba(255,255,255,.03);
+        color: #CFE0FF;
+        font-size: 13px;
+      }
+      .actions{
+        display:flex; flex-wrap:wrap; gap:10px;
+        margin-top: 18px;
+      }
+
+      /* Side card */
+      .heroSide{
+        padding:20px;
+        display:flex;
+        flex-direction:column;
+        gap:14px;
+      }
+      .avatar{
+        display:flex; align-items:center; gap:12px;
+      }
+      .avatar .img{
+        width:52px; height:52px; border-radius:14px;
+        background:
+          linear-gradient(135deg, rgba(124,92,255,.35), rgba(46,233,166,.22)),
+          rgba(255,255,255,.06);
+        border:1px solid rgba(255,255,255,.12);
+        box-shadow: 0 0 0 1px rgba(124,92,255,.18), 0 20px 60px rgba(0,0,0,.55);
+        display:grid; place-items:center;
+        font-weight:900;
+        letter-spacing: .6px;
+      }
+      .miniTitle{ font-weight:800; margin:0; }
+      .miniSub{ color:var(--muted); margin:2px 0 0; font-size:13px; }
+      .info{
+        display:grid;
+        gap:10px;
+        padding-top:10px;
+        border-top: 1px solid rgba(255,255,255,.08);
+      }
+      .row{
+        display:flex; gap:10px; align-items:flex-start;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .row b{ color: var(--text); font-weight:700; }
+      .row .ico{
+        width:22px; height:22px; border-radius:8px;
+        background: rgba(255,255,255,.04);
+        border:1px solid rgba(255,255,255,.10);
+        display:grid; place-items:center;
+        color:#D9D4FF;
+        flex:0 0 auto;
+      }
+
+      /* Sections */
+      .section{
+        margin-top: 22px;
+        padding: 22px;
+      }
+      .section h2{
+        margin:0 0 10px;
+        font-size: 18px;
+        letter-spacing: .2px;
+      }
+      .section p{
+        margin:0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      .grid{
+        display:grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap:14px;
+        margin-top: 14px;
+      }
+      @media (max-width: 900px){
+        .grid{ grid-template-columns: 1fr; }
+      }
+      .tile{
+        padding:16px;
+        background: rgba(255,255,255,.03);
+        border: 1px solid rgba(255,255,255,.10);
+        border-radius: 16px;
+      }
+      .tile h3{ margin:0 0 8px; font-size:14px; }
+      .tile ul{ margin:0; padding-left: 16px; color:var(--muted); }
+      .tile li{ margin:6px 0; }
+
+      /* Projects */
+      .projects{
+        display:grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap:14px;
+        margin-top: 14px;
+      }
+      @media (max-width: 980px){
+        .projects{ grid-template-columns:1fr; }
+      }
+      .project{
+        padding:16px;
+        border-radius: 16px;
+        background:
+          radial-gradient(520px 240px at 30% 0%, rgba(124,92,255,.14), transparent 60%),
+          rgba(255,255,255,.03);
+        border: 1px solid rgba(255,255,255,.10);
+        display:flex;
+        flex-direction:column;
+        gap:10px;
+        min-height: 160px;
+      }
+      .project .top{
+        display:flex; align-items:flex-start; justify-content:space-between; gap:10px;
+      }
+      .badge{
+        padding:4px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        border:1px solid rgba(255,255,255,.12);
+        background: rgba(255,255,255,.03);
+        color:#CFE0FF;
+        white-space:nowrap;
+      }
+      .project p{ margin:0; color:var(--muted); line-height:1.55; font-size: 13px; }
+      .project .links{ display:flex; gap:10px; margin-top:auto; flex-wrap:wrap; }
+      .link{
+        color:#DAD5FF;
+        font-weight:650;
+        font-size: 13px;
+        padding:8px 10px;
+        border-radius: 12px;
+        border:1px solid rgba(255,255,255,.10);
+        background: rgba(255,255,255,.02);
+      }
+      .link:hover{ background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.18); }
+
+      /* Footer */
+      .footer{
+        margin-top: 18px;
+        padding: 18px 22px;
+        display:flex; align-items:center; justify-content:space-between;
+        gap:12px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .footer .right{ display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; }
+
+      /* Tiny helper */
+      .sep{ height:1px; background: rgba(255,255,255,.08); margin: 14px 0; }
+      .mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace; }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <!-- Sticky nav -->
+      <div class="nav">
+        <div class="brand">
+          <span class="dot"></span>
+          <span class="mono">JPM</span>
+        </div>
+
+        <div class="navlinks">
+          <a href="#about" data-i18n="nav_about">Sobre</a>
+          <a href="#skills" data-i18n="nav_skills">Skills</a>
+          <a href="#projects" data-i18n="nav_projects">Projetos</a>
+          <a href="#contact" data-i18n="nav_contact">Contato</a>
+        </div>
+
+        <div class="lang">
+          <button class="btn small" id="langBtn" aria-label="Change language">
+            PT / EN
+          </button>
+        </div>
+      </div>
+
+      <!-- Hero -->
+      <section class="hero" id="top">
+        <div class="card heroMain">
+          <div class="kicker">
+            <span class="pill" data-i18n="kicker_pill">OPEN TO REMOTE</span>
+            <span data-i18n="kicker_text">Disponível para oportunidades remotas (Brasil / Internacional)</span>
+          </div>
+
+          <h1>
+            <span data-i18n="hero_title_1">Jean Paulo Muraro</span><br/>
+            <span style="color:#DAD5FF" data-i18n="hero_title_2">Software Developer</span>
+          </h1>
+
+          <p class="subtitle" data-i18n="hero_subtitle">
+            Desenvolvedor Full Stack com diferencial em Blockchain/Web3. Perfil híbrido: visão de negócios + engenharia de software.
+          </p>
+
+          <div class="chips">
+            <span class="chip">React</span>
+            <span class="chip">TypeScript</span>
+            <span class="chip">Node.js</span>
+            <span class="chip">REST APIs</span>
+            <span class="chip">Smart Contracts</span>
+            <span class="chip">Hardhat</span>
+          </div>
+
+          <div class="actions">
+            <!-- Troque os links de CV quando você publicar os PDFs em algum lugar -->
+            <a class="btn primary" href="#" id="cvBtn" target="_blank" rel="noreferrer" data-i18n="btn_cv">
+              Download CV
+            </a>
+            <a class="btn" href="https://github.com/JPMuraro" target="_blank" rel="noreferrer">
+              GitHub
+            </a>
+            <a class="btn" href="https://www.linkedin.com/in/jean-muraro-dev-a14733107" target="_blank" rel="noreferrer">
+              LinkedIn
+            </a>
+          </div>
+
+          <div class="sep"></div>
+
+          <p class="subtitle" style="margin-bottom:0" data-i18n="hero_note">
+            Dica: fixe 3 projetos no GitHub e deixe READMEs claros — isso aumenta muito a taxa de resposta de recrutadores.
+          </p>
+        </div>
+
+        <aside class="card heroSide">
+          <div class="avatar">
+            <div class="img mono">JM</div>
+            <div>
+              <p class="miniTitle">Jean Paulo Muraro</p>
+              <p class="miniSub" data-i18n="side_role">Full Stack • Blockchain/Web3</p>
+            </div>
+          </div>
+
+          <div class="info">
+            <div class="row">
+              <div class="ico">📍</div>
+              <div><b data-i18n="side_location_label">Local:</b> <span data-i18n="side_location_value">Paraná, Brasil (Remote)</span></div>
+            </div>
+            <div class="row">
+              <div class="ico">✉️</div>
+              <div><b data-i18n="side_email_label">Email:</b><br/>
+                <a href="mailto:jpm.jeanpaulomuraro@gmail.com" class="mono">jpm.jeanpaulomuraro@gmail.com</a><br/>
+                <a href="mailto:jpm.jeanpaulomuraro@hotmail.com" class="mono">jpm.jeanpaulomuraro@hotmail.com</a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="ico">🗣</div>
+              <div><b data-i18n="side_lang_label">Idiomas:</b> <span data-i18n="side_lang_value">EN (Intermediário) • ES (Intermediário)</span></div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- About -->
+      <section class="card section" id="about">
+        <h2 data-i18n="about_title">Sobre</h2>
+        <p data-i18n="about_text">
+          Sou desenvolvedor com formação em Administração e Análise e Desenvolvimento de Sistemas, atualmente em especialização em Blockchain.
+          Tenho experiência em projetos autorais com foco em aplicações web, integração front/back e estudo aplicado de arquiteturas descentralizadas.
+        </p>
+      </section>
+
+      <!-- Skills -->
+      <section class="card section" id="skills">
+        <h2 data-i18n="skills_title">Skills</h2>
+        <p data-i18n="skills_intro">
+          Stack principal para desenvolvimento de sistemas web e experimentos Web3.
+        </p>
+
+        <div class="grid">
+          <div class="tile">
+            <h3 data-i18n="skills_1_title">Frontend</h3>
+            <ul>
+              <li>React</li>
+              <li>TypeScript</li>
+              <li>HTML / CSS</li>
+            </ul>
+          </div>
+
+          <div class="tile">
+            <h3 data-i18n="skills_2_title">Backend</h3>
+            <ul>
+              <li>Node.js</li>
+              <li>REST APIs</li>
+              <li>Architecture</li>
+            </ul>
+          </div>
+
+          <div class="tile">
+            <h3 data-i18n="skills_3_title">Blockchain / Web3</h3>
+            <ul>
+              <li>Smart Contracts (ERC-20 / ERC-721)</li>
+              <li>Hardhat</li>
+              <li>On-chain / Off-chain</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section class="card section" id="projects">
+        <h2 data-i18n="projects_title">Projetos</h2>
+        <p data-i18n="projects_intro">
+          Selecione 3 projetos e mantenha os READMEs claros. Aqui já deixei 3 cards prontos — é só colocar os links reais.
+        </p>
+
+        <div class="projects">
+          <div class="project">
+            <div class="top">
+              <div>
+                <h3 style="margin:0" data-i18n="proj1_title">DApp • Web3 Integration</h3>
+              </div>
+              <span class="badge" data-i18n="proj_badge_web3">Web3</span>
+            </div>
+            <p data-i18n="proj1_desc">
+              Experimentos de integração front-end com blockchain e interação com smart contracts.
+            </p>
+            <div class="links">
+              <a class="link" href="https://github.com/JPMuraro" target="_blank" rel="noreferrer" data-i18n="proj_link_repo">Repo</a>
+              <a class="link" href="#" target="_blank" rel="noreferrer" data-i18n="proj_link_demo">Demo</a>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="top">
+              <div>
+                <h3 style="margin:0" data-i18n="proj2_title">Plataforma Odontologia</h3>
+              </div>
+              <span class="badge" data-i18n="proj_badge_fullstack">Full Stack</span>
+            </div>
+            <p data-i18n="proj2_desc">
+              Plataforma de planejamento estratégico e indicadores para clínicas odontológicas.
+            </p>
+            <div class="links">
+              <a class="link" href="https://github.com/JPMuraro" target="_blank" rel="noreferrer" data-i18n="proj_link_repo">Repo</a>
+              <a class="link" href="#" target="_blank" rel="noreferrer" data-i18n="proj_link_demo">Demo</a>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="top">
+              <div>
+                <h3 style="margin:0" data-i18n="proj3_title">HumanityChain (Architecture)</h3>
+              </div>
+              <span class="badge" data-i18n="proj_badge_arch">Architecture</span>
+            </div>
+            <p data-i18n="proj3_desc">
+              Arquitetura e modelagem conceitual de uma plataforma blockchain focada em impacto social.
+            </p>
+            <div class="links">
+              <a class="link" href="https://github.com/JPMuraro" target="_blank" rel="noreferrer" data-i18n="proj_link_repo">Repo</a>
+              <a class="link" href="#" target="_blank" rel="noreferrer" data-i18n="proj_link_docs">Docs</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="card section" id="contact">
+        <h2 data-i18n="contact_title">Contato</h2>
+        <p data-i18n="contact_text">Se quiser falar comigo, é só me chamar por email ou LinkedIn.</p>
+        <div class="actions" style="margin-top:14px;">
+          <a class="btn primary" href="mailto:jpm.jeanpaulomuraro@gmail.com">Email (Gmail)</a>
+          <a class="btn" href="mailto:jpm.jeanpaulomuraro@hotmail.com">Email (Hotmail)</a>
+          <a class="btn" href="https://www.linkedin.com/in/jean-muraro-dev-a14733107" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </section>
+
+      <div class="card footer">
+        <div>© <span id="year"></span> Jean Paulo Muraro</div>
+        <div class="right">
+          <a href="#top" class="link" style="padding:8px 10px;" data-i18n="footer_back">Voltar ao topo</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const i18n = {
+        pt: {
+          nav_about: "Sobre",
+          nav_skills: "Skills",
+          nav_projects: "Projetos",
+          nav_contact: "Contato",
+
+          kicker_pill: "OPEN TO REMOTE",
+          kicker_text: "Disponível para oportunidades remotas (Brasil / Internacional)",
+
+          hero_title_1: "Jean Paulo Muraro",
+          hero_title_2: "Software Developer",
+          hero_subtitle:
+            "Desenvolvedor Full Stack com diferencial em Blockchain/Web3. Perfil híbrido: visão de negócios + engenharia de software.",
+          btn_cv: "Download CV",
+          hero_note:
+            "Dica: fixe 3 projetos no GitHub e deixe READMEs claros — isso aumenta muito a taxa de resposta de recrutadores.",
+
+          side_role: "Full Stack • Blockchain/Web3",
+          side_location_label: "Local:",
+          side_location_value: "Paraná, Brasil (Remote)",
+          side_email_label: "Email:",
+          side_lang_label: "Idiomas:",
+          side_lang_value: "EN (Intermediário) • ES (Intermediário)",
+
+          about_title: "Sobre",
+          about_text:
+            "Sou desenvolvedor com formação em Administração e Análise e Desenvolvimento de Sistemas, atualmente em especialização em Blockchain. Tenho experiência em projetos autorais com foco em aplicações web, integração front/back e estudo aplicado de arquiteturas descentralizadas.",
+
+          skills_title: "Skills",
+          skills_intro: "Stack principal para desenvolvimento de sistemas web e experimentos Web3.",
+          skills_1_title: "Frontend",
+          skills_2_title: "Backend",
+          skills_3_title: "Blockchain / Web3",
+
+          projects_title: "Projetos",
+          projects_intro:
+            "Selecione 3 projetos e mantenha os READMEs claros. Aqui já deixei 3 cards prontos — é só colocar os links reais.",
+          proj_badge_web3: "Web3",
+          proj_badge_fullstack: "Full Stack",
+          proj_badge_arch: "Architecture",
+
+          proj1_title: "DApp • Web3 Integration",
+          proj1_desc: "Experimentos de integração front-end com blockchain e interação com smart contracts.",
+          proj2_title: "Plataforma Odontologia",
+          proj2_desc: "Plataforma de planejamento estratégico e indicadores para clínicas odontológicas.",
+          proj3_title: "HumanityChain (Architecture)",
+          proj3_desc: "Arquitetura e modelagem conceitual de uma plataforma blockchain focada em impacto social.",
+
+          proj_link_repo: "Repo",
+          proj_link_demo: "Demo",
+          proj_link_docs: "Docs",
+
+          contact_title: "Contato",
+          contact_text: "Se quiser falar comigo, é só me chamar por email ou LinkedIn.",
+
+          footer_back: "Voltar ao topo",
+        },
+
+        en: {
+          nav_about: "About",
+          nav_skills: "Skills",
+          nav_projects: "Projects",
+          nav_contact: "Contact",
+
+          kicker_pill: "OPEN TO REMOTE",
+          kicker_text: "Available for remote opportunities (Brazil / Worldwide)",
+
+          hero_title_1: "Jean Paulo Muraro",
+          hero_title_2: "Software Developer",
+          hero_subtitle:
+            "Full Stack developer with a Blockchain/Web3 edge. Hybrid profile: business strategy + software engineering.",
+          btn_cv: "Download CV",
+          hero_note:
+            "Tip: pin 3 projects on GitHub and keep your READMEs clear — it greatly increases recruiter response rates.",
+
+          side_role: "Full Stack • Blockchain/Web3",
+          side_location_label: "Location:",
+          side_location_value: "Brazil (Remote)",
+          side_email_label: "Email:",
+          side_lang_label: "Languages:",
+          side_lang_value: "EN (Intermediate) • ES (Intermediate)",
+
+          about_title: "About",
+          about_text:
+            "Software developer with a background in Business Administration and Systems Analysis & Development, currently specializing in Blockchain. Hands-on independent projects focused on web apps, front/back integration, and applied decentralized architecture concepts.",
+
+          skills_title: "Skills",
+          skills_intro: "Primary stack for building web systems and Web3 experiments.",
+          skills_1_title: "Frontend",
+          skills_2_title: "Backend",
+          skills_3_title: "Blockchain / Web3",
+
+          projects_title: "Projects",
+          projects_intro:
+            "Pick 3 projects and keep the READMEs clear. These 3 cards are ready — just plug in your real links.",
+          proj_badge_web3: "Web3",
+          proj_badge_fullstack: "Full Stack",
+          proj_badge_arch: "Architecture",
+
+          proj1_title: "DApp • Web3 Integration",
+          proj1_desc: "Frontend integration experiments with blockchain and smart contract interactions.",
+          proj2_title: "Dental Strategy Platform",
+          proj2_desc: "Strategic planning platform with KPIs and growth indicators for dental clinics.",
+          proj3_title: "HumanityChain (Architecture)",
+          proj3_desc: "Architecture and conceptual modeling of a blockchain platform focused on social impact.",
+
+          proj_link_repo: "Repo",
+          proj_link_demo: "Demo",
+          proj_link_docs: "Docs",
+
+          contact_title: "Contact",
+          contact_text: "Want to talk? Reach me via email or LinkedIn.",
+
+          footer_back: "Back to top",
+        }
+      };
+
+      const langBtn = document.getElementById("langBtn");
+      const year = document.getElementById("year");
+      year.textContent = new Date().getFullYear();
+
+      // Set initial language from localStorage or browser
+      const saved = localStorage.getItem("lang");
+      let current = saved || (navigator.language?.toLowerCase().startsWith("en") ? "en" : "pt");
+      applyLang(current);
+
+      langBtn.addEventListener("click", () => {
+        current = current === "pt" ? "en" : "pt";
+        localStorage.setItem("lang", current);
+        applyLang(current);
+      });
+
+      function applyLang(lang){
+        document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
+        const dict = i18n[lang];
+        document.querySelectorAll("[data-i18n]").forEach(el => {
+          const key = el.getAttribute("data-i18n");
+          if(dict[key]) el.textContent = dict[key];
+        });
+      }
+
+      // Optional: set CV button link depending on language
+      // Replace these with your hosted files (Google Drive, GitHub Releases, etc.)
+      const cvBtn = document.getElementById("cvBtn");
+      function updateCVLink(){
+        // Example placeholders. Change later:
+        const cvPT = "#"; // e.g. "https://.../Curriculo_Jean_Paulo_Muraro.pdf"
+        const cvEN = "#"; // e.g. "https://.../Jean_Paulo_Muraro_Resume_EN.pdf"
+        cvBtn.href = (current === "pt") ? cvPT : cvEN;
+      }
+      updateCVLink();
+      langBtn.addEventListener("click", updateCVLink);
+    </script>
+  </body>
+</html>
